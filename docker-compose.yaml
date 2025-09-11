@@ -8,6 +8,7 @@
           
   consolegpt:
     image: consolegpt
+    container_name: consolegpt
     build:
       context: .
       dockerfile: ConsoleGPT/Dockerfile
