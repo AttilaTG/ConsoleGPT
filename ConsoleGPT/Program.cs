@@ -13,17 +13,18 @@ var messages = new List<Message>
     new Message("system", "You are TinyLlama, a helpful assistant for chatting. Be concise and friendly.")
 };
 
-Console.WriteLine("🤖 Welcome to ConsoleGPT!\n💬 Type your message to chat with AI\n🚪 Enter 'exit' or a whitespace to quit");
+Console.WriteLine("🤖 Welcome to ConsoleGPT!\n💬 Type your message to chat with AI\n🚪 Enter 'exit' or a whitespace to quit\n");
 
 while (true)
 {
-    Console.ForegroundColor = ConsoleColor.Green;
+    Console.ForegroundColor = ConsoleColor.Blue;
     Console.Write("💬 : ");
     var userInput = Console.ReadLine();
+    Console.WriteLine();
+    Console.ResetColor();
     
     if (string.IsNullOrWhiteSpace(userInput) || userInput.Equals("exit", StringComparison.CurrentCultureIgnoreCase))
     {
-        Console.ResetColor();
         break;
     }
     
@@ -49,19 +50,13 @@ while (true)
             continue;
         }
         
-        Console.ForegroundColor = ConsoleColor.White;
         Console.WriteLine($"🤖: {reply.Message.Content}\n");
-        Console.ResetColor();
         
         messages.Add(reply.Message);
     }
     catch (HttpRequestException ex)
     {
         Console.WriteLine($"❌ Connection Error: {ex.Message}");
-    }
-    catch (TaskCanceledException)
-    {
-        Console.WriteLine("❌ Timeout: Request was cancelled");
     }
     catch (Exception ex)
     {

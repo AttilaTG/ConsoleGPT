@@ -1,7 +1,7 @@
 ﻿services:
-  ollama:
+  ollama-server:
     image: ollama/ollama
-    container_name: ollama
+    container_name: ollama-server
     volumes:
       - ollama_data:/root/.ollama
     restart: unless-stopped
@@ -13,9 +13,9 @@
       context: .
       dockerfile: ConsoleGPT/Dockerfile
     depends_on:
-      - ollama
+      - ollama-server
     environment:
-      - OLLAMA_HOST=http://ollama:11434
+      - OLLAMA_HOST=http://ollama-server:11434
     stdin_open: true
     tty: true
     restart: unless-stopped
