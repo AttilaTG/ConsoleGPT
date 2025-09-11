@@ -4,12 +4,12 @@
 [![Docker](https://img.shields.io/badge/Docker-✓-blue)](https://docker.com)
 [![Ollama](https://img.shields.io/badge/Ollama-✓-orange)](https://ollama.ai)
 
-A .NET 8 console application for interacting with the TinyLlama model via HTTP. Fully dockerized with Ollama included, ready to run with minimal configuration.
+A .NET 8 console application for interacting with the TinyLlama model via HTTP. Fully dockerized with Ollama Server included, ready to run with minimal configuration.
 
 ## ✨ Features
 
 - 💬 Interactive chat with TinyLlama model from console
-- 🐳 Fully containerized: Ollama + .NET app in Docker
+- 🐳 Fully containerized: Ollama Server + .NET app in Docker
 - ⚡ Minimal setup - just Docker required
 - 💾 Persistent model storage with Docker volumes
 
@@ -46,7 +46,7 @@ docker compose run --rm consolegpt
 
 | Service | Description 
 |---------|-------------
-| **ollama_data** | Ollama server with model storage
+| **ollama** | Ollama server with model storage
 | **consolegpt** | .NET 8 console chat app
 
 ## 🔧 Troubleshooting
@@ -71,7 +71,7 @@ docker logs ollama
 
 - First model download may take 2-3 minutes
 - Models are stored in `ollama_data` Docker volume
-- Console app auto-reconnects if Ollama restarts
+- Console app auto-reconnects if Ollama Server restarts
 
 ## 📄 License
 
