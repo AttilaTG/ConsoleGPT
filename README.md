@@ -17,7 +17,7 @@ A .NET 8 console application for interacting with the TinyLlama model via HTTP. 
 
 ### 1. Clone and build
 ```bash
-git clone https://github.com/yourusername/ConsoleGPT.git
+git clone https://github.com/AttilaTG/ConsoleGPT.git
 cd ConsoleGPT
 docker compose up --build
 ```
@@ -27,7 +27,7 @@ docker compose up --build
 > ⚠️ Only needed the first time you run the application. The model is stored in the Docker volume for future use.
 
 ```bash
-docker exec ollama ollama pull tinyllama
+docker exec ollama-server ollama pull tinyllama
 ```
 
 ### 3. Start chatting!
@@ -46,25 +46,25 @@ docker compose run --rm consolegpt
 
 | Service | Description 
 |---------|-------------
-| **ollama** | Ollama server with model storage
+| **ollama-server** | Ollama server with model storage
 | **consolegpt** | .NET 8 console chat app
 
 ## 🔧 Troubleshooting
 
 ### Model not downloading?
 ```bash
-docker exec ollama ollama pull tinyllama
-docker exec ollama ollama list
+docker exec ollama-server ollama pull tinyllama
+docker exec ollama-server ollama list
 ```
 
 ### Connection issues?
 ```bash
 # Test Ollama API
-docker exec ollama curl http://localhost:11434/api/tags
+docker exec ollama-server curl http://localhost:11434/api/tags
 
 # Check containers
 docker ps
-docker logs ollama
+docker logs ollama-server
 ```
 
 ## 📝 Notes
