@@ -23,6 +23,9 @@ docker compose up --build
 ```
 
 ### 2. Download the model (in a new terminal)
+
+> ⚠️ Only needed the first time you run the application. The model is stored in the Docker volume for future use.
+
 ```bash
 docker exec ollama ollama pull tinyllama
 ```
