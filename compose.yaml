@@ -1,0 +1,27 @@
+﻿services:
+  ollama:
+    image: ollama/ollama
+    container_name: ollama
+    ports:
+      - '11435:11434'
+    environment:
+      - OLLAMA_HOST=0.0.0.0:11434
+    volumes:
+      - ollama_data:/root/.ollama
+    restart: unless-stopped
+          
+  consolegpt:
+    image: consolegpt
+    build:
+      context: .
+      dockerfile: ConsoleGPT/Dockerfile
+    depends_on:
+      - ollama
+    environment:
+      - OLLAMA_HOST=http://ollama:11434
+    stdin_open: true
+    tty: true
+    restart: unless-stopped
+
+volumes:
+  ollama_data:
