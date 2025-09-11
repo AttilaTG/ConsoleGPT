@@ -8,14 +8,17 @@ var client = new HttpClient()
     BaseAddress = new Uri(ollamaHost)
 };
 
-var messages = new List<Message>();
+var messages = new List<Message>
+{
+    new Message("system", "You are TinyLlama, a helpful assistant for chatting. Be concise and friendly.")
+};
 
 Console.WriteLine("🤖 Welcome to ConsoleGPT!\n💬 Type your message to chat with AI\n🚪 Enter 'exit' or a whitespace to quit");
 
 while (true)
 {
     Console.ForegroundColor = ConsoleColor.Green;
-    Console.Write("💬 You: ");
+    Console.Write("💬 : ");
     var userInput = Console.ReadLine();
     
     if (string.IsNullOrWhiteSpace(userInput) || userInput.Equals("exit", StringComparison.CurrentCultureIgnoreCase))
@@ -47,7 +50,7 @@ while (true)
         }
         
         Console.ForegroundColor = ConsoleColor.White;
-        Console.WriteLine($"🤖 Ollama: {reply.Message.Content}\n");
+        Console.WriteLine($"🤖: {reply.Message.Content}\n");
         Console.ResetColor();
         
         messages.Add(reply.Message);
