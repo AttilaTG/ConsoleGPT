@@ -2,10 +2,6 @@
   ollama:
     image: ollama/ollama
     container_name: ollama
-    ports:
-      - '11435:11434'
-    environment:
-      - OLLAMA_HOST=0.0.0.0:11434
     volumes:
       - ollama_data:/root/.ollama
     restart: unless-stopped
