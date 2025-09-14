@@ -19,7 +19,7 @@ A .NET 8 console application for interacting with the TinyLlama model via HTTP. 
 ```bash
 git clone https://github.com/AttilaTG/ConsoleGPT.git
 cd ConsoleGPT
-docker compose up --build
+docker compose up --build -d
 ```
 
 ### 2. Download the model (in a new terminal)
