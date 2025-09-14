@@ -1,0 +1,8 @@
+{
+  "Plugins": {
+    "WeatherPlugin":{
+      "CurrentWeatherEndpoint" : "http://api.weatherapi.com/v1/current.json?q={0}&key={1}",
+      "ApiKey" : "Your_Api_Key"
+    }
+  }
+}
