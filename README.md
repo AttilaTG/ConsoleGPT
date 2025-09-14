@@ -35,6 +35,14 @@ docker exec ollama-server ollama pull tinyllama
 docker compose run --rm consolegpt
 ```
 
+### 4. Stop and Cleanup
+
+To stop the containers and remove the network:
+
+```bash
+docker compose down
+```
+
 ## 📋 Usage
 
 - Type your message and press **Enter**
